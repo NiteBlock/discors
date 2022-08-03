@@ -1,0 +1,20 @@
+[package]
+edition = "2021"
+name = "disco-rs"
+version = "0.1.0"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[features]
+client = ["presence"]
+default = ["client", "presence"]
+presence = []
+
+[dependencies]
+async-trait = "0.1"
+serde_json = "1.0"
+tokio = "0.2"
+
+[dependencies.serde]
+features = ["default", "derive"]
+version = "1.0"
