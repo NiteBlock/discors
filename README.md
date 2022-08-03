@@ -1,3 +1,5 @@
+![Tests](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
+
 # disco-rs
 A discord crate for rust!
 
