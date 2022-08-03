@@ -18,18 +18,18 @@ jobs:
           toolchain: ${{ matrix.toolchain }}
           components: rustfmt, clippy
       - uses: actions/checkout@v2
-      - name: cargo fmt --check
+      - name: cd disco-rs; cargo fmt --check
         uses: actions-rs/cargo@v1
         with:
           command: fmt
           args: --check
-      - name: cargo doc
+      - name: cd disco-rs; cargo doc
         uses: actions-rs/cargo@v1
         if: always()
         with:
           command: doc
           args: --no-deps --all-features
-      - name: cargo clippy
+      - name: cd disco-rs; cargo clippy
         uses: actions-rs/clippy-check@v1
         if: always()
         with:

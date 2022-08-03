@@ -23,7 +23,7 @@ jobs:
           profile: minimal
           toolchain: ${{ matrix.toolchain }}
       - uses: actions/checkout@v2
-      - name: cargo test
+      - name: cd disco-rs; cargo test
         uses: actions-rs/cargo@v1
         with:
           command: test
