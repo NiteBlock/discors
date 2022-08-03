@@ -6,7 +6,7 @@ use self::{
 
 /// Gateway intents that are used when establishing a client connection with discord.
 /// These determine what events the bot recieves and some other ways data works.
-/// 
+///
 /// [Read More]()
 pub mod intents;
 pub mod state;
@@ -17,6 +17,12 @@ where
     S: State,
 {
     state: S,
+}
+
+impl Default for Client<Build> {
+    fn default() -> Self {
+        Self::new()
+    }
 }
 
 impl Client<Build> {

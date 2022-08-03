@@ -26,7 +26,7 @@ macro_rules! bitflags {
         impl ::std::ops::BitXor for $f {
             type Output = $f;
             fn bitxor(self, other: $f) -> Self::Output {
-                Self(self.0 & other.0)
+                Self(self.0 ^ other.0)
             }
         }
         impl ::std::ops::BitOrAssign for $f {
@@ -41,7 +41,7 @@ macro_rules! bitflags {
         }
         impl ::std::ops::BitXorAssign for $f {
             fn bitxor_assign(&mut self, other: $f) {
-                self.0 &= other.0;
+                self.0 ^= other.0;
             }
         }
         impl ::std::convert::From<$i> for $f {
@@ -60,7 +60,7 @@ macro_rules! bitflags {
                 Self(!self.0)
             }
         }
-        impl crate::models::traits::BitFlag for $f {
+        impl $crate::models::traits::BitFlag for $f {
             #[doc = concat!(
                 "Checks if a set of ",
                 stringify!($f),
