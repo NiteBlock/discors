@@ -66,7 +66,7 @@ impl Color {
     /// Creates a new color using a correct value passed.
     ///
     /// ```rust
-    /// use disco_rs::color::Color;
+    /// use discors::color::Color;
     /// // red
     /// let my_color = Color::new(0xff0000);
     ///
@@ -100,7 +100,7 @@ impl Color {
     /// Converts a RGB code into a Color.
     ///
     /// ```rust
-    /// use disco_rs::color::Color;
+    /// use discors::color::Color;
     /// // A nice dark red.
     /// let my_color = Color::from_rgb(123, 23, 10);
     /// // The same color but in hex
@@ -118,7 +118,7 @@ impl ToString for Color {
     /// Converts the color to a [`String`] as a hex code.
     ///
     /// ```rust
-    /// use disco_rs::color::Color;
+    /// use discors::color::Color;
     ///
     /// let my_color = Color::new(0xabc123);
     ///

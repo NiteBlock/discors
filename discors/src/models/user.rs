@@ -57,7 +57,7 @@ macro_rules! userflags {
             /// Wether a given set of user flags contains another set.
             ///
             /// ```rust
-            /// use disco_rs::models::user::Userflags;
+            /// use discors::models::user::Userflags;
             ///
             /// let my_flags = Userflags::STAFF | Userflags::VERIFIED_DEVELOPER | Userflags::BUG_HUNTER_LEVEL_2;
             ///

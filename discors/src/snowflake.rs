@@ -4,7 +4,7 @@ use crate::timestamp::Timestamp;
 
 /// A discord snowflake, represents any ID on discord.
 /// These IDs are guaranteed to be unique across all of Discord, except in some unique scenarios in which child objects share their parent's ID.
-/// Intern they are stored in 64 bit integers, [`disco_rs`] will do all the seralization automatically to convert it from and to strings.
+/// Intern they are stored in 64 bit integers, [`discors`] will do all the seralization automatically to convert it from and to strings.
 ///
 #[derive(Debug, Clone, Copy)]
 pub struct Snowflake<S>(u64, PhantomData<S>)

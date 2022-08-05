@@ -68,7 +68,7 @@ macro_rules! permissions {
             /// [Read more](https://discord.com/developers/docs/topics/permissions)
             ///
             /// ```rust
-            /// use disco_rs::permissions::Permissions;
+            /// use discors::permissions::Permissions;
             ///
             /// let permissions = Permissions::new(0x802);
             ///

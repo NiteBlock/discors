@@ -1,6 +1,6 @@
 ![Tests](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
 
-# disco-rs
+# discors
 A discord crate for rust!
 
 ## Rationale 
@@ -10,7 +10,7 @@ All current discord crates require an often very obscured syntax and aren't orie
 
 ```rs
 // /src/main.rs
-use disco_rs::{Client, Context, event, events, channel::Message};
+use discors::{Client, Context, event, events, channel::Message};
 
 
 #[tokio::main]
@@ -29,7 +29,7 @@ fn main() {
 
 // This macro will do a lot of things behind the scenes, like figure out what on_message is.
 #[event]
-fn on_message(ctx: Context, msg: Message) -> disco_rs::Result<()> {
+fn on_message(ctx: Context, msg: Message) -> discors::Result<()> {
     ctx.reply(format!("Hello, {}", msg.author.name)).await?;
     Ok(())
 }

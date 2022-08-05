@@ -1,6 +1,8 @@
 // Client<S> is a generic type parameterized by a state type S.
 // The state type S is a type that implements the State trait.
 
+use crate::error::Error;
+
 use super::intents::Intents;
 use std::fmt::Debug;
 
@@ -53,4 +55,16 @@ impl Build {
         self.intents = intents;
         self
     }
+
+    pub fn start(self) -> Result<Starting, Error> {
+        Ok(Starting {
+            token: self.token.unwrap(),
+            intents: self.intents,
+        })
+    }
 }
+
+state!(Starting => {
+    pub token: String,
+    pub intents: Intents,
+});

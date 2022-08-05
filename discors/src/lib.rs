@@ -1,4 +1,4 @@
-//! This is the main library for the `disco-rs` crate.
+//! This is the main library for the `discors` crate.
 #![warn(rust_2018_idioms, missing_debug_implementations)]
 #![warn(clippy::unwrap_used, clippy::expect_used)]
 // #![warn(missing_docs)]
@@ -24,6 +24,9 @@ pub mod permissions;
 pub mod snowflake;
 /// A timestamp is a wrapper around a unix milliseconds time, that communicates with discord in various situations
 pub mod timestamp;
+
+/// The error type for errors from discord
+pub mod error;
 
 // aliases for being cool
 /// A direct alias to [`self::snowflake::Snowflake`]

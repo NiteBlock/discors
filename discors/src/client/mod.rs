@@ -1,8 +1,9 @@
 ///! todo!
 use self::{
     intents::Intents,
-    state::{Build, State},
+    state::{Build, Starting, State},
 };
+use crate::error::Error;
 
 /// Gateway intents that are used when establishing a client connection with discord.
 /// These determine what events the bot recieves and some other ways data works.
@@ -46,5 +47,11 @@ impl Client<Build> {
     pub fn intents(&mut self, intents: Intents) -> &mut Self {
         self.state.intents(intents);
         self
+    }
+
+    pub fn start(self) -> Result<Client<Starting>, Error> {
+        Ok(Client::<Starting> {
+            state: self.state.start()?,
+        })
     }
 }

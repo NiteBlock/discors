@@ -12,6 +12,6 @@ Cargo.lock
 
 # Added by cargo
 
-disco-rs/target
-disco-rs/Cargo.lock
+discors/target
+discors/Cargo.lock
 .DS_Store
