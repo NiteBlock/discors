@@ -58,7 +58,9 @@ impl Build {
 
     pub fn start(self) -> Result<Starting, Error> {
         Ok(Starting {
-            token: self.token.unwrap(),
+            token: self
+                .token
+                .ok_or(Error::ConfigurationError("No token provided"))?,
             intents: self.intents,
         })
     }

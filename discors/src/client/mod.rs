@@ -1,3 +1,8 @@
+use reqwest::{
+    header::{HeaderMap, HeaderValue},
+    ClientBuilder,
+};
+
 ///! todo!
 use self::{
     intents::Intents,
@@ -49,9 +54,22 @@ impl Client<Build> {
         self
     }
 
-    pub fn start(self) -> Result<Client<Starting>, Error> {
-        Ok(Client::<Starting> {
-            state: self.state.start()?,
-        })
+    pub async fn start(self) -> Result<Client<Starting>, Error> {
+        Ok(Client::<Starting>::new(self.state.start()?).await?)
+    }
+}
+
+impl Client<Starting> {
+    pub async fn new(state: Starting) -> Result<Self, Error> {
+        let builder = ClientBuilder::new().default_headers({
+            let mut x = HeaderMap::new();
+            x.insert(
+                "Authorization",
+                HeaderValue::from_str(&state.token)
+                    .map_err(|_errr| Error::ConfigurationError("Invalid token passed."))?,
+            );
+            x
+        });
+        Ok(Self { state })
     }
 }

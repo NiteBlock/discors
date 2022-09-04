@@ -53,23 +53,6 @@ macro_rules! userflags {
                     pub const $alias: Userflags = Userflags::$flag;
                 )*
             )*
-
-            /// Wether a given set of user flags contains another set.
-            ///
-            /// ```rust
-            /// use discors::models::user::Userflags;
-            ///
-            /// let my_flags = Userflags::STAFF | Userflags::VERIFIED_DEVELOPER | Userflags::BUG_HUNTER_LEVEL_2;
-            ///
-            /// // these flags include verified dev
-            /// assert!(my_flags.contains(Userflags::VERIFIED_DEVELOPER));
-            /// // but not verified bot
-            /// assert!(!my_flags.contains(Userflags::VERIFIED_BOT));
-            /// ```
-            pub fn contains(self, other: Self) -> bool {
-                // if the intersection is the other one, self contains other.
-                (self & other) == other
-            }
         }
     };
 }

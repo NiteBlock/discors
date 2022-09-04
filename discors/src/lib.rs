@@ -3,6 +3,11 @@
 #![warn(clippy::unwrap_used, clippy::expect_used)]
 // #![warn(missing_docs)]
 
+#[cfg(feature = "v10")]
+pub const API_VERSION: u8 = 10;
+#[cfg(feature = "v10")]
+pub const BASE_URL: &str = "https://discordapp.com/api/v10";
+
 /// The main client used to connect to discord.
 /// todo!
 #[cfg(feature = "client")]
